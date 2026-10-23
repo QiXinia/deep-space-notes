@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primitive-void: oklch(0 0 0);
+    --primitive-star: oklch(1 0 0);
+    --primitive-mist: oklch(0.92 0.01 240);
+    --primitive-signal: oklch(0.64 0.24 25);
+    --primitive-orbit: oklch(0.55 0.24 264);
+    --primitive-solar: oklch(0.87 0.17 95);
+    --color-bg: var(--primitive-void);
+    --color-text: var(--primitive-star);
+    --color-muted: var(--primitive-mist);
+    --color-accent: var(--primitive-signal);
+    --color-focus: var(--primitive-solar);
+    --font-body: 'Manrope Variable', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+    --font-display: 'Cormorant Garamond', 'Noto Serif CJK SC', 'Songti SC', 'STSong', serif;
+    --font-mono: 'SFMono-Regular', 'Cascadia Code', 'Liberation Mono', monospace;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --border: 240 5% 30%;
+    --ring: 48 95% 55%;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; background: var(--color-bg); }
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  button, input { font: inherit; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+  button { color: inherit; }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--color-accent); color: var(--primitive-void); }
+  :focus-visible { outline: 1px dashed var(--color-focus); outline-offset: 5px; }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--primitive-void); }
+  ::-webkit-scrollbar-thumb { background: var(--primitive-mist); border: 3px solid var(--primitive-void); }
+}
+
+#root { min-height: 100dvh; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.mono { font-family: var(--font-mono); letter-spacing: .08em; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
