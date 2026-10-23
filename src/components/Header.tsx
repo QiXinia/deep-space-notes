@@ -7,6 +7,7 @@ interface HeaderProps {
 }
 
 const navItems = [
+  { href: '#solar-system', label: '宇宙', en: 'UNIVERSE' },
   { href: '#journal', label: '文章', en: 'JOURNAL' },
   { href: '#constellation', label: '星图', en: 'ORBIT' },
   { href: '#about', label: '关于', en: 'ABOUT' },
